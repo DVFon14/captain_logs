@@ -1,19 +1,17 @@
 const express = require("express");
 const app = express();
 
-const logs = ["day0", "day1", "day2"];
+app.set("view engine", "jsx");
+app.engine("jsx", require("express-react-views").createEngine()); //similar to requiring
 
 //Index
-app.get("/logs", (req, res) => {
-  res.send(logs);
-});
 
 //Show
-app.get("/logs/:id", (req, res) => {
-  res.send(logs[req.params.id]);
-});
 
 //New
+app.get("/logs/new", (req, res) => {
+  res.render("New");
+});
 
 //Create
 
