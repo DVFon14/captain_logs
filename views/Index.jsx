@@ -19,7 +19,7 @@ class Index extends Component {
             return (
                 <li>The <a href={`/logs/${logsElement.id}`}>{logsElement.title}</a> is {logsElement.entry }. 
                     <br />
-                {logsElement.shipIsBroken ? `It's ready to eat` : `not ready to eat`}
+                {logsElement.shipIsBroken ? `The ship is broken` : `The ship is not broken`}
                 <br />
                 <form action={`/logs/${logsElement.id}?_method=DELETE`} method="POST">
                   <input type ='submit' value ='DELETE'/>

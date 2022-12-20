@@ -48,18 +48,18 @@ app.get("/logs", (req, res) => {
 //   });
 // });
 
-//Show
-// app.get("/logs/:id", (req, res) => {
-//   Log.findById(req.params.id, (err, foundLog) => {
-//     res.render("Show", {
-//       logs: foundLog,
-//     });
-//   });
-// });
-
 //New
 app.get("/logs/new", (req, res) => {
   res.render("New");
+});
+
+//Show
+app.get("/logs/:id", (req, res) => {
+  Log.findById(req.params.id, (error, foundLog) => {
+    res.render("Show", {
+      log: foundLog,
+    });
+  });
 });
 
 //Create;
