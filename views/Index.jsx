@@ -2,8 +2,9 @@ import React, { Component } from "react";
 
 class Index extends Component {
   render() {
-    console.log(this.props.logs);
     const { logs } = this.props;
+    console.log(this.props);
+
     return (
       <div>
         <nav>

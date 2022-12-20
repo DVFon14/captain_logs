@@ -31,8 +31,22 @@ app.use(bodyPaser.urlencoded({ extended: false }));
 
 //Index
 app.get("/logs", (req, res) => {
-  res.render("Index");
+  // res.render("Index");
+  Log.find({}, (error, allLogsArgument) => {
+    res.render("Index", {
+      logs: allLogsArgument,
+    });
+  });
 });
+
+// app.get("/fruits", (req, res) => {
+//   //find all fruits
+//   Fruit.find({}, (error, allFruitsArgument) => {
+//     res.render("fruits/Index", {
+//       fruits: allFruitsArgument,
+//     });
+//   });
+// });
 
 //Show
 // app.get("/logs/:id", (req, res) => {
@@ -48,24 +62,24 @@ app.get("/logs/new", (req, res) => {
   res.render("New");
 });
 
-//Create
-// app.post("/logs", (req, res) => {
-//   Logs.create(req.body, (error, newLog) => {
-//     res.redirect("/logs");
-//   });
-// });
-
+//Create;
 app.post("/logs", (req, res) => {
-  if (req.body.shipIsBroken === "on") {
-    req.body.shipIsBroken = true;
-  } else {
-    req.body.shipIsBroken = false;
-  }
-
-  Log.create(req.body, (error, createdLog) => {
-    res.send(createdLog);
+  Log.create(req.body, (error, newLog) => {
+    res.redirect("/logs");
   });
 });
+
+// app.post("/logs", (req, res) => {
+//   if (req.body.shipIsBroken === "on") {
+//     req.body.shipIsBroken = true;
+//   } else {
+//     req.body.shipIsBroken = false;
+//   }
+
+//   Log.create(req.body, (error, createdLog) => {
+//     res.send(createdLog);
+//   });
+// });
 
 //Edit
 
