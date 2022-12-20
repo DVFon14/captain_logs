@@ -13,8 +13,8 @@ const React = require('react')
                </nav>
                <h1>Show Page</h1>
                <p>
-               The {log.title} is {log.entry}. {/*try putting these in <p></p> to see how it changes the presentation*/}
-               {log.shipIsBroken? ' It is ready to eat.': ' It is not ready to eat...wait a little longer.'}
+               The {log.title} is {log.entry}. <br/>{/*try putting these in <p></p> to see how it changes the presentation*/}
+               {log.shipIsBroken? 'The ship is broken.': ' The ship is not broken.'}
                </p>
             </div>
          )

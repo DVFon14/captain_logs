@@ -17,7 +17,8 @@ class Index extends Component {
         
         {logs.map((logsElement)=>{
             return (
-                <li>The <a href={`/logs/${logsElement.id}`}>{logsElement.title}</a> is {logsElement.entry }. 
+                <li>The <a href={`/logs/${logsElement.id}`}>{logsElement.title}</a> <br />
+                {logsElement.entry } <br />
                     <br />
                 {logsElement.shipIsBroken ? `The ship is broken` : `The ship is not broken`}
                 <br />

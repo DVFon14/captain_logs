@@ -70,18 +70,23 @@ app.post("/logs", (req, res) => {
 });
 
 // app.post("/logs", (req, res) => {
-//   if (req.body.shipIsBroken === "on") {
-//     req.body.shipIsBroken = true;
-//   } else {
-//     req.body.shipIsBroken = false;
-//   }
-
+// req.body.readyToEat = !readyToEat ? false : true;
 //   Log.create(req.body, (error, createdLog) => {
-//     res.send(createdLog);
+//     res.redirect("/logs");
 //   });
 // });
 
 //Edit
+app.get("/logs/:id/edit", (req, res) => {
+  //find my log by id
+  Log.findById(req.params.id, (error, foundLog) => {
+    //render an edit form
+    res.render("Edit", {
+      //pass in the log data
+      log: foundLog,
+    });
+  });
+});
 
 //Update
 
