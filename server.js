@@ -89,6 +89,20 @@ app.get("/logs/:id/edit", (req, res) => {
 });
 
 //Update
+app.put("/logs/:id", (req, res) => {
+  //check if the ship is broken
+  if (req.body.readyToEat === "on") {
+    req.body.shipIsReady = true;
+  } else {
+    req.body.shipIsReady = false;
+  }
+  //find Log by id and update it
+  Log.findByIdAndUpdate(req.params.id, req.body, (err, updatedLog) => {
+    console.log(updatedLog);
+    // redirect to the fruit show page
+    res.redirect(`/logs/${req.params.id}`);
+  });
+});
 
 //Delete
 app.delete("/logs/:id", (req, res) => {
