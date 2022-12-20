@@ -86,6 +86,11 @@ app.post("/logs", (req, res) => {
 //Update
 
 //Delete
+app.delete("/logs/:id", (req, res) => {
+  Log.findByIdAndRemove(req.params.id, (err, deletedLog) => {
+    res.redirect("/logs");
+  });
+});
 
 app.listen(3000, () => {
   console.log("listening on port 3000");

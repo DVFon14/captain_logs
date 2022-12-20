@@ -15,15 +15,19 @@ class Index extends Component {
 
         <ul>{/* loop through the logs array using map */}
         
-        {logs?.map((logsElement)=>{
+        {logs.map((logsElement)=>{
             return (
                 <li>The <a href={`/logs/${logsElement.id}`}>{logsElement.title}</a> is {logsElement.entry }. 
                     <br />
                 {logsElement.shipIsBroken ? `The ship is broken` : `The ship is not broken`}
                 <br />
+
+                
                 <form action={`/logs/${logsElement.id}?_method=DELETE`} method="POST">
                   <input type ='submit' value ='DELETE'/>
                 </form>
+
+
                 <a href ={`/logs/${logsElement.id}/edit`}>Edit this Log</a>
                 </li>
             )
